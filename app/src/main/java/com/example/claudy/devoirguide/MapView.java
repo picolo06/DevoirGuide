@@ -48,7 +48,7 @@ public class MapView extends AppCompatActivity implements OnMapReadyCallback /*,
         name = intent.getExtras().getString("namee");
 
         floatingActionButton = (FloatingActionButton) findViewById(R.id.floatingActionButton);
-        floatingActionButton.bringToFront();
+        //floatingActionButton.bringToFront();
         /*
         if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling

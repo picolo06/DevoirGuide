@@ -53,7 +53,7 @@ public class Login extends AppCompatActivity {
                 final String password = etPassword.getText().toString();
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(Login.this);
-                builder.setMessage("Logging  please wait")
+                builder.setMessage("poze la tonton")
 
                         .create()
                         .show();
@@ -97,7 +97,7 @@ public class Login extends AppCompatActivity {
 
                             } else {
                                 AlertDialog.Builder builder = new AlertDialog.Builder(Login.this);
-                                builder.setMessage("Login Failed")
+                                builder.setMessage("Ou anvi bat mwen !!!")
                                         .setNegativeButton("Retry", null)
                                         .create()
                                         .show();

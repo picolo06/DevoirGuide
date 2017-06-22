@@ -21,12 +21,12 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class MapView extends AppCompatActivity implements OnMapReadyCallback /*, LocationListener*/ {
+public class MapView extends AppCompatActivity implements OnMapReadyCallback, LocationListener {
 
     GoogleMap map;
     LocationManager locationManager;
-    float latitude;
-    float longitude;
+    double latitude;
+    double longitude;
     String name;
     FloatingActionButton floatingActionButton;
 
@@ -45,14 +45,14 @@ public class MapView extends AppCompatActivity implements OnMapReadyCallback /*,
         //locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 
 
-        Intent intent=getIntent();
-        latitude = intent.getExtras().getFloat("lag");
-                longitude = intent.getExtras().getFloat("longi");
+        Intent intent = getIntent();
+        latitude = intent.getExtras().getDouble("lag");
+        longitude = intent.getExtras().getDouble("longi");
         name = intent.getExtras().getString("namee");
 
         floatingActionButton = (FloatingActionButton) findViewById(R.id.floatingActionButton);
         //floatingActionButton.bringToFront();
-        /*
+
         if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
             //    ActivityCompat#requestPermissions
@@ -63,28 +63,40 @@ public class MapView extends AppCompatActivity implements OnMapReadyCallback /*,
             // for ActivityCompat#requestPermissions for more details.
             return;
         }
-        locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 1, 1, this);*/
+        locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 1, 1, this);
+
     }
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
         map = googleMap;
 
-        Toast.makeText(MapView.this,latitude +"         "+ longitude,Toast.LENGTH_LONG).show();
-
-        // map.setMyLocationEnabled(true);
-        LatLng location = new LatLng( (double)longitude,(double)latitude);
+        Toast.makeText(MapView.this, latitude + "         " + longitude, Toast.LENGTH_LONG).show();
+       
+        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
+        }
+        map.setMyLocationEnabled(true);
+        LatLng location = new LatLng( longitude ,latitude);
         map.addMarker(new MarkerOptions().position(location).title(name));
         map.moveCamera(CameraUpdateFactory.newLatLng(location));
 
 
     }
-/*
+
     @Override
     public void onLocationChanged(Location location) {
 
         map.clear();
-        LatLng currentLocation = new LatLng(location.getLatitude(), location.getLongitude());
+
+        LatLng currentLocation = new LatLng(latitude, longitude);
 
 
         MarkerOptions markerOptions = new MarkerOptions();
@@ -112,7 +124,8 @@ public class MapView extends AppCompatActivity implements OnMapReadyCallback /*,
     public void onProviderDisabled(String provider) {
 
     }
-*/
+
+
     public  void back (View view)
 
     {

@@ -91,8 +91,8 @@ public class DetailActivity extends AppCompatActivity {
             //recuperer lag et long pour envoyer a map
             floatingActionButton = (FloatingActionButton) findViewById(R.id.floatingActionButton);
 
-            final float lag = guideModel.getRating();
-            final float longi= guideModel.getRatin();
+            final double lag = guideModel.getRating();
+            final double longi= guideModel.getRatin();
             final String namee= guideModel.getMovie() ;
             floatingActionButton.setOnClickListener(new View.OnClickListener() {
                 @Override

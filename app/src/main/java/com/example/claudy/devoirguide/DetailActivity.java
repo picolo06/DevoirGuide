@@ -78,9 +78,9 @@ public class DetailActivity extends AppCompatActivity {
 
             tvMovie.setText(guideModel.getMovie());
             tvTagline.setText(guideModel.getTagline());
-            tvYear.setText("Id: " + guideModel.getYear());
-            tvDuration.setText("Adresse:" + guideModel.getDuration());
-            tvDirector.setText("Telephone:" + guideModel.getDirector());
+            tvYear.setText("Id:  " + guideModel.getYear());
+            tvDuration.setText("Adresse:   " + guideModel.getDuration());
+            tvDirector.setText("Telephone:   " + guideModel.getDirector());
 
             // rating bar
             rbMovieRating.setRating(guideModel.getRating() / 2);

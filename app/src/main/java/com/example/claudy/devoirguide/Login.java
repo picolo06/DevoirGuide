@@ -52,6 +52,12 @@ public class Login extends AppCompatActivity {
                 final String username = etUsername.getText().toString();
                 final String password = etPassword.getText().toString();
 
+                AlertDialog.Builder builder = new AlertDialog.Builder(Login.this);
+                builder.setMessage("Logging  please wait")
+
+                        .create()
+                        .show();
+
                 // Response received from the server
                 Response.Listener<String> responseListener = new Response.Listener<String>() {
                     @RequiresApi(api = Build.VERSION_CODES.KITKAT)

@@ -1,6 +1,7 @@
 package com.example.claudy.devoirguide;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
@@ -20,6 +21,9 @@ public class MapView extends AppCompatActivity implements OnMapReadyCallback, Lo
 
     GoogleMap map;
     LocationManager locationManager;
+    float latitude;
+    float longitude;
+    String name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +37,12 @@ public class MapView extends AppCompatActivity implements OnMapReadyCallback, Lo
         //  map.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
 
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+
+
+        Intent intent=getIntent();
+        latitude = intent.getExtras().getFloat("lag");
+                longitude = intent.getExtras().getFloat("longi");
+        name = intent.getExtras().getString("namee");
 
         if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
@@ -53,6 +63,9 @@ public class MapView extends AppCompatActivity implements OnMapReadyCallback, Lo
 
 
         // map.setMyLocationEnabled(true);
+        LatLng location = new LatLng(longitude,latitude);
+        map.addMarker(new MarkerOptions().position(location).title(name));
+        map.moveCamera(CameraUpdateFactory.newLatLng(location));
 
 
     }

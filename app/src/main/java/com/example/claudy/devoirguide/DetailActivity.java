@@ -2,6 +2,7 @@ package com.example.claudy.devoirguide;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -31,6 +32,7 @@ public class DetailActivity extends AppCompatActivity {
     private TextView tvCast;
     private TextView tvStory;
     private ProgressBar progressBar;
+    private FloatingActionButton floatingActionButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,11 +86,28 @@ public class DetailActivity extends AppCompatActivity {
 
             // rating bar
             rbMovieRating.setRating(guideModel.getRating() / 2);
-
-
-
             tvStory.setText(guideModel.getStory());
 
+            //recuperer lag et long pour envoyer a map
+            floatingActionButton = (FloatingActionButton) findViewById(R.id.floatingActionButton);
+
+            final float lag = guideModel.getRating();
+            final float longi= guideModel.getRatin();
+            final String namee= guideModel.getMovie() ;
+            floatingActionButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(DetailActivity.this, MapView.class);
+                    startActivity(intent);
+
+
+                    intent.putExtra("lag", lag);
+                    intent.putExtra("longi", longi);
+                    intent.putExtra("namee", namee);
+
+                    DetailActivity.this.startActivity(intent);
+                }
+            });
         }
 
     }
@@ -125,6 +144,9 @@ public class DetailActivity extends AppCompatActivity {
     {
         Intent intent = new Intent(DetailActivity.this, MapView.class);
         startActivity(intent);
+
+
+        DetailActivity.this.startActivity(intent);
     }
 
 }

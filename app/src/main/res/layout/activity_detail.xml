@@ -121,7 +121,7 @@ android:layout_gravity="left|top">
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:clickable="true"
-            android:onClick="mv"
+
             app:backgroundTint="@android:color/background_dark"
             app:fabSize="mini"
             app:srcCompat="@android:drawable/ic_menu_mapmode" />

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+android:orientation="vertical"
+xmlns:tools="http://schemas.android.com/tools"
+tools:context="com.example.claudy.devoirguide.PageUser">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    android:layout_marginTop="5dp"
+    android:orientation="horizontal">
+
+    <EditText
+        android:id="@+id/filter"
+        android:layout_width="236dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Rechercher"
+        android:layout_weight="7.10" />
+
+</LinearLayout>
+
+<ListView
+    android:id="@+id/lvMovies"
+    android:layout_width="match_parent"
+    android:layout_height="405dp"
+    tools:layout_editor_absoluteX="8dp"
+    tools:layout_editor_absoluteY="117dp"
+    android:layout_weight="0.70" />
+
+
+
+
+
+</LinearLayout>

@@ -73,7 +73,7 @@ public class MapView extends AppCompatActivity implements OnMapReadyCallback /*,
         Toast.makeText(MapView.this,latitude +"         "+ longitude,Toast.LENGTH_LONG).show();
 
         // map.setMyLocationEnabled(true);
-        LatLng location = new LatLng(longitude,latitude);
+        LatLng location = new LatLng( (double)longitude,(double)latitude);
         map.addMarker(new MarkerOptions().position(location).title(name));
         map.moveCamera(CameraUpdateFactory.newLatLng(location));
 

@@ -258,6 +258,7 @@ public class PageAdministrateur extends AppCompatActivity {
             holder.tvYear.setText("ID: " + guideModelList.get(position).getYear());
             holder.tvDuration.setText("Adresse:" + guideModelList.get(position).getDuration());
             holder.tvDirector.setText("Telephone:" + guideModelList.get(position).getDirector());
+            holder.tvStory.setText("Telephone:" + guideModelList.get(position).getRatin());
 
             // rating bar
             holder.rbMovieRating.setRating(guideModelList.get(position).getRating()/2);

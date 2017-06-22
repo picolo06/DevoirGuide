@@ -13,24 +13,9 @@
         android:id="@+id/map"
         android:name="com.google.android.gms.maps.MapFragment"
         android:layout_width="match_parent"
-        android:layout_height="470dp" />
+        android:layout_height="match_parent" />
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/floatingActionButton3"
 
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end"
-        android:layout_weight="1"
-        android:adjustViewBounds="false"
-        android:clickable="true"
-        android:forceHasOverlappingRendering="false"
-
-        android:onClick="back"
-        app:backgroundTint="@color/common_google_signin_btn_text_light_disabled"
-        app:elevation="0dp"
-        app:fabSize="mini"
-        app:srcCompat="@drawable/ic_undo_black_24dp" />
 
 
 </LinearLayout>

@@ -9,6 +9,7 @@ import android.location.LocationManager;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -17,7 +18,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class MapView extends AppCompatActivity implements OnMapReadyCallback, LocationListener {
+public class MapView extends AppCompatActivity implements OnMapReadyCallback /*, LocationListener*/ {
 
     GoogleMap map;
     LocationManager locationManager;
@@ -43,7 +44,7 @@ public class MapView extends AppCompatActivity implements OnMapReadyCallback, Lo
         latitude = intent.getExtras().getFloat("lag");
                 longitude = intent.getExtras().getFloat("longi");
         name = intent.getExtras().getString("namee");
-
+        /*
         if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
             //    ActivityCompat#requestPermissions
@@ -54,7 +55,7 @@ public class MapView extends AppCompatActivity implements OnMapReadyCallback, Lo
             // for ActivityCompat#requestPermissions for more details.
             return;
         }
-        locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 1, 1, this);
+        locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 1, 1, this);*/
     }
 
     @Override
@@ -69,7 +70,7 @@ public class MapView extends AppCompatActivity implements OnMapReadyCallback, Lo
 
 
     }
-
+/*
     @Override
     public void onLocationChanged(Location location) {
 
@@ -102,4 +103,16 @@ public class MapView extends AppCompatActivity implements OnMapReadyCallback, Lo
     public void onProviderDisabled(String provider) {
 
     }
+*/
+    public  void back (View view)
+
+    {
+        Intent intent = new Intent(MapView.this, DetailActivity.class);
+        startActivity(intent);
+
+
+        MapView.this.startActivity(intent);
+    }
+
+
 }

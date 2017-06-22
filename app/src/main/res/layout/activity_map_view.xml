@@ -8,9 +8,34 @@
     tools:context="com.example.claudy.devoirguide.MapView"
     android:orientation="vertical">
 
-    <fragment
-        android:id="@+id/map"
-        android:name="com.google.android.gms.maps.MapFragment"
+
+        <fragment
+            android:id="@+id/map"
+            android:name="com.google.android.gms.maps.MapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="405dp"
+        android:orientation="vertical"
+        android:layout_gravity="bottom">
+
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/floatingActionButton3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:onClick="back"
+            app:backgroundTint="@color/common_google_signin_btn_text_light_disabled"
+            app:fabSize="mini"
+            app:srcCompat="?android:attr/floatingToolbarCloseDrawable" />
+
+    </LinearLayout>
+
 </LinearLayout>
